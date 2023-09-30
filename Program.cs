@@ -15,6 +15,14 @@ while(true)
     Console.WriteLine($"Machine has chosen {machineChoice}");
 
     Winner(machineChoice,yourChoice);
+
+    Console.WriteLine("For continue playing press Y to stop press any other key");
+    var continuePlaying = Console.ReadLine();
+
+    if(continuePlaying?.ToLower() == "y")
+        continue;
+    else
+        break;
 }
 
 string SelectedChoice(){
