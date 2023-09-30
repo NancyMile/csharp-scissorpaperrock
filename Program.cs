@@ -13,6 +13,8 @@ while(true)
     var machineChoice = MachineChoice();
 
     Console.WriteLine($"Machine has chosen {machineChoice}");
+
+    Winner(machineChoice,yourChoice);
 }
 
 string SelectedChoice(){
@@ -37,4 +39,40 @@ char MachineChoice()
     int randomIndex = random.Next(0,options.Length);
 
     return options[randomIndex];
+}
+
+void Winner(char machineChoice, char yourChoice)
+{
+    if (machineChoice == yourChoice)
+    {
+        Console.WriteLine("Tie!");
+        return;
+    }
+
+    switch (yourChoice)
+    {
+        case 'r':
+        case 'R':
+            if(machineChoice == 'p')
+                Console.WriteLine("Paper beats rock. Machine Won");
+            else if(machineChoice == 's')
+                Console.WriteLine("Rock beats scissors. You won");
+            break;
+        case 's':
+        case 'S':
+            if(machineChoice == 'p')
+                Console.WriteLine("Scissors beats paper. You Won");
+            else if(machineChoice == 'r')
+                Console.WriteLine("Rock beats scissors. Machine won");
+            break;
+        case 'p':
+        case 'P':
+            if(machineChoice == 's')
+                Console.WriteLine("Scissors beats paper. Machine Won");
+            else if(machineChoice == 'r')
+                Console.WriteLine("Paper beats rock. You won");
+            break;
+        default:
+            break;
+    }
 }
